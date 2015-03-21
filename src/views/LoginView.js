@@ -15,21 +15,7 @@ define(function(require, exports, module) {
 
         // Applies View's constructor function to LoginView class
         View.apply(this, arguments);
-        this.rootModifier = new StateModifier({
-            size: [400, 450]
-        });
-
-        // saving a reference to the new node
-        this.mainNode = this.add(this.rootModifier);
-
-        var background = new Surface({
-           // undefined size will inherit size from parent modifier
-            properties: {
-                backgroundColor: '#CA3030',
-                boxShadow: '0 10px 20px -5px rgba(0, 0, 0, 0.5)'
-            }
-        }); 
-        this.mainNode = this.add(background);
+        
     }
 
     // Establishes prototype chain for LoginView class to inherit from View
