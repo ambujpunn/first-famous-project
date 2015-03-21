@@ -1,18 +1,26 @@
 /*** AppView ***/
 
 define(function(require, exports, module) {
-    var View = famous.core.View;
-    var Surface = famous.core.Surface;
-    var Transform = famous.core.Transform;
-    var StateModifier = famous.modifiers.StateModifier;
-
+    var View = require('famous/core/View');
+    var Surface = require('famous/core/Surface');
+    var Transform = require('famous/core/Transform');
+    var StateModifier = require('famous/modifiers/StateModifier');
+    var ImageSurface = require('famous/surfaces/ImageSurface');
     var LoginView = require('views/LoginView');
 
     function AppView() {
         View.apply(this, arguments);
 
         var loginView = new LoginView();
-        this.add(loginView);
+    //    this.add(loginView);
+    var background = new Surface({
+       // undefined size will inherit size from parent modifier
+        properties: {
+            backgroundColor: '#CA3030',
+            boxShadow: '0 10px 20px -5px rgba(0, 0, 0, 0.5)'
+        }
+    }); 
+    this.mainNode = this.add(background);
     }
 
     AppView.prototype = Object.create(View.prototype);

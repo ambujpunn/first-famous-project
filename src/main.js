@@ -1,15 +1,14 @@
-/*global famous*/
-// import dependencies
-var Engine = famous.core.Engine;
-var Modifier = famous.core.Modifier;
-var Transform = famous.core.Transform;
-var ImageSurface = famous.surfaces.ImageSurface;
+define(function(require, exports, module) {
+    var Engine = require('famous/core/Engine');
+    
+    // import the AppView class using require
+    var AppView = require('views/AppView');
 
-var appView = require('views/AppView');
-// create the main context
-var mainContext = Engine.createContext();
+    var mainContext = Engine.createContext();
 
-// your app here
-var appView = new AppView();
+  // create a new instance of app view
+    var appView = new AppView();
 
-mainContext.add(appView); 
+        // add the instance to the context
+    mainContext.add(appView);
+});

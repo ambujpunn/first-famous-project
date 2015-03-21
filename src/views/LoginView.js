@@ -4,10 +4,11 @@
 define(function(require, exports, module) {
 
     // Import additional modules to be used in this view 
-    var View = famous.core.View;
-    var Surface = famous.core.Surface;
-    var Transform = famous.core.Transform;
-    var StateModifier = famous.modifiers.StateModifier;
+    var View = require('famous/core/View');
+    var Surface = require('famous/core/Surface');
+    var Transform = require('famous/core/Transform');
+    var StateModifier = require('famous/modifiers/StateModifier');
+    var ImageSurface = require('famous/surfaces/ImageSurface');
 
     // Constructor function for our LoginView class
     function LoginView() {
