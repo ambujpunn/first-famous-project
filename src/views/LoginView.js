@@ -23,7 +23,7 @@ define(function(require, exports, module) {
 
         _createBackground.call(this);
         // for later, use for v2 having authentication for buttons
-       // _createButton.call(this);
+        _createButton.call(this);
         
     }
 
