@@ -22,7 +22,8 @@ define(function(require, exports, module) {
         this.mainNode = this.add(this.rootModifier); 
 
         _createBackground.call(this);
-        _createButton.call(this);
+        // for later, use for v2 having authentication for buttons
+       // _createButton.call(this);
         
     }
 
@@ -32,7 +33,7 @@ define(function(require, exports, module) {
 
     // Default options for LoginView class
     LoginView.DEFAULT_OPTIONS = {
-        size:[250,400]
+        size:[375,650]
    };
 
     /*
@@ -50,8 +51,13 @@ define(function(require, exports, module) {
 
     function _createButton() {
         var facebookButton = new ImageSurface({
-
+            size: [50,50],
+            content: "img/FB-f-Logo__blue_50.png",
+            properties: {
+                zIndex:2
+            }
         });
+        this.mainNode.add(facebookButton);
     }
 
     // Define your helper functions and prototype methods here
