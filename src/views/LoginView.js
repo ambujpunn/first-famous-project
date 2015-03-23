@@ -15,6 +15,14 @@ define(function(require, exports, module) {
 
         // Applies View's constructor function to LoginView class
         View.apply(this, arguments);
+        this.rootModifier = new StateModifier({
+            size: this.options.size
+        });
+
+        this.mainNode = this.add(this.rootModifier); 
+
+        _createBackground.call(this);
+        _createButton.call(this);
         
     }
 
@@ -23,7 +31,28 @@ define(function(require, exports, module) {
     LoginView.prototype.constructor = LoginView;
 
     // Default options for LoginView class
-    LoginView.DEFAULT_OPTIONS = {};
+    LoginView.DEFAULT_OPTIONS = {
+        size:[250,400]
+   };
+
+    /*
+    * Private function
+    */
+    function _createBackground() {
+        var background = new Surface({
+            properties: {
+                backgroundColor: '#FF9933',
+                boxShadow: '0 10px 20px -5px rgba(0, 0, 0, 0.5)'
+            }
+        }); 
+        this.mainNode.add(background);
+    }
+
+    function _createButton() {
+        var facebookButton = new ImageSurface({
+
+        });
+    }
 
     // Define your helper functions and prototype methods here
 
