@@ -9,6 +9,7 @@ define(function(require, exports, module) {
     var Transform = require('famous/core/Transform');
     var StateModifier = require('famous/modifiers/StateModifier');
     var ImageSurface = require('famous/surfaces/ImageSurface');
+    var InputSurface = require('famous/surfaces/InputSurface');
 
     // Constructor function for our LoginView class
     function LoginView() {
@@ -22,7 +23,10 @@ define(function(require, exports, module) {
         this.mainNode = this.add(this.rootModifier); 
 
         _createBackground.call(this);
-        
+      //  _createUserNameTextField.call(this);
+       // _createPasswordTextField.call(this);
+       // _createSubmitButton.call(this);        
+        _createFieldsAndButton.call(this);
     }
 
     // Establishes prototype chain for LoginView class to inherit from View
@@ -45,6 +49,48 @@ define(function(require, exports, module) {
             }
         }); 
         this.mainNode.add(background);
+    }
+
+    function _createFieldsAndButton() {
+        var userName = new InputSurface({
+            size: [250, 40],
+            name: 'inputSurface',
+            placeholder: 'User Name',
+            value: '',
+            type: 'text'
+        });
+        this.mainNode.add(new StateModifier({
+            align: [.5, .2],
+            origin: [.5, .1]
+        })).add(userName); 
+
+        var password = new InputSurface({
+            size: [250, 40],
+            name: 'inputSurface',
+            placeholder: 'Password',
+            value: '',
+            type: 'text'
+        });
+        this.mainNode.add(new StateModifier({
+            align: [.5, .2],
+            origin: [.5, -1]
+        })).add(password); 
+
+        var submit = new Surface({
+                size:[250,40],
+                content:  'Submit',
+                properties: {
+                    backgroundColor: '#3399FF'
+                }
+        });
+        this.mainNode.add(new StateModifier({
+            align: [.5, .2],
+            origin: [0.5, -2.1]
+        })).add(submit);
+
+        submit.on('click', function () {
+            alert(password.getValue());
+        });
     }
 
     // Define your helper functions and prototype methods here
